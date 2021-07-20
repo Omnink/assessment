@@ -912,7 +912,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "54";
+	app.meta.h["build"] = "1";
 	app.meta.h["company"] = "HaxeFlixel";
 	app.meta.h["file"] = "memorymatch";
 	app.meta.h["name"] = "memorymatch";
@@ -3419,6 +3419,9 @@ DocumentClass.__super__ = Main;
 DocumentClass.prototype = $extend(Main.prototype,{
 	__class__: DocumentClass
 });
+var AssetPaths = function() { };
+$hxClasses["AssetPaths"] = AssetPaths;
+AssetPaths.__name__ = "AssetPaths";
 var EReg = function(r,opt) {
 	this.r = new RegExp(r,opt.split("u").join(""));
 };
@@ -3612,7 +3615,7 @@ ManifestResources.init = function(config) {
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf);
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf);
 	var bundle;
-	var data = "{\"name\":null,\"assets\":\"aoy4:pathy34:assets%2Fdata%2Fdata-goes-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR0y24:assets%2Fdata%2Fmm_1.txtR2i46R3R4R5R7R6tgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3R4R5R8R6tgoR0y27:assets%2Fimages%2Findex.pngR2i2916R3y5:IMAGER5R9R6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R4R5R11R6tgoR0y36:assets%2Fsounds%2Fsounds-go-here.txtR2zR3R4R5R12R6tgoR2i2114R3y5:MUSICR5y26:flixel%2Fsounds%2Fbeep.mp3y9:pathGroupaR14y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R13R5y28:flixel%2Fsounds%2Fflixel.mp3R15aR17y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i5794R3y5:SOUNDR5R16R15aR14R16hgoR2i33629R3R19R5R18R15aR17R18hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R20R21y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i519R3R10R5R26R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i3280R3R10R5R27R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
+	var data = "{\"name\":null,\"assets\":\"aoy4:pathy34:assets%2Fdata%2Fdata-goes-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3R4R5R7R6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R4R5R8R6tgoR2i130680R3y5:MUSICR5y26:assets%2Fsounds%2Fmm_1.mp3y9:pathGroupaR10y26:assets%2Fsounds%2Fmm_1.wavhR6tgoR2i647724R3y5:SOUNDR5R12R11aR10R12hgoR0y36:assets%2Fsounds%2Fsounds-go-here.txtR2zR3R4R5R14R6tgoR2i2114R3R9R5y26:flixel%2Fsounds%2Fbeep.mp3R11aR15y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R9R5y28:flixel%2Fsounds%2Fflixel.mp3R11aR17y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i5794R3R13R5R16R11aR15R16hgoR2i33629R3R13R5R18R11aR17R18hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R19R20y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i519R3y5:IMAGER5R25R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i3280R3R26R5R27R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
 	var manifest = lime_utils_AssetManifest.parse(data,ManifestResources.rootPath);
 	var library = lime_utils_AssetLibrary.fromManifest(manifest);
 	lime_utils_Assets.registerLibrary("default",library);
@@ -66950,7 +66953,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 155892;
+	this.version = 545265;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
@@ -69257,7 +69260,7 @@ lime_utils_UInt8ClampedArray._clamp = function(_in) {
 var objects_MemoryTile = function(x,y,type) {
 	this.type = -1;
 	flixel_addons_display_FlxExtendedSprite.call(this,x,y);
-	this.clickable = true;
+	this.clickable = false;
 	this.type = type;
 	switch(this.type) {
 	case 0:
@@ -69280,17 +69283,201 @@ objects_MemoryTile.prototype = $extend(flixel_addons_display_FlxExtendedSprite.p
 	}
 	,__class__: objects_MemoryTile
 });
-var objects_MemoryTileMap = function(x,y) {
+var objects_MemoryTileMap = function(x,y,numActiveTiles) {
 	flixel_group_FlxTypedSpriteGroup.call(this,x,y);
-	this.buildMap();
-	this.resetMapData();
+	this.buildMap(numActiveTiles);
+	this.startTimer(3);
 };
 $hxClasses["objects.MemoryTileMap"] = objects_MemoryTileMap;
 objects_MemoryTileMap.__name__ = "objects.MemoryTileMap";
 objects_MemoryTileMap.__super__ = flixel_group_FlxTypedSpriteGroup;
 objects_MemoryTileMap.prototype = $extend(flixel_group_FlxTypedSpriteGroup.prototype,{
 	tileData: null
-	,buildMap: function() {
+	,tiles: null
+	,startTimer: function(seconds) {
+		new flixel_util_FlxTimer().start(seconds,$bind(this,this.hideMap));
+	}
+	,hideMap: function(timer) {
+		console.log("WE DID IT");
+		var _g = 0;
+		while(_g < 5) {
+			var x = _g++;
+			this.remove(this.tiles[0][x]);
+			this.tiles[0][x] = null;
+			var tile = new objects_MemoryTile(96 * x + 16 * x,0,0);
+			tile.clickable = true;
+			this.add(tile);
+			this.tiles[0][x] = tile;
+		}
+		var _g = 0;
+		while(_g < 5) {
+			var x = _g++;
+			this.remove(this.tiles[1][x]);
+			this.tiles[1][x] = null;
+			var tile = new objects_MemoryTile(96 * x + 16 * x,112,0);
+			tile.clickable = true;
+			this.add(tile);
+			this.tiles[1][x] = tile;
+		}
+		var _g = 0;
+		while(_g < 5) {
+			var x = _g++;
+			this.remove(this.tiles[2][x]);
+			this.tiles[2][x] = null;
+			var tile = new objects_MemoryTile(96 * x + 16 * x,224,0);
+			tile.clickable = true;
+			this.add(tile);
+			this.tiles[2][x] = tile;
+		}
+		var _g = 0;
+		while(_g < 5) {
+			var x = _g++;
+			this.remove(this.tiles[3][x]);
+			this.tiles[3][x] = null;
+			var tile = new objects_MemoryTile(96 * x + 16 * x,336,0);
+			tile.clickable = true;
+			this.add(tile);
+			this.tiles[3][x] = tile;
+		}
+	}
+	,setData: function(numActiveTiles) {
+		var count = 0;
+		var _g = [];
+		var _g1 = [];
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g.push(_g1);
+		var _g1 = [];
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g.push(_g1);
+		var _g1 = [];
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g.push(_g1);
+		var _g1 = [];
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g.push(_g1);
+		var _g1 = [];
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g.push(_g1);
+		var _g1 = [];
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g.push(_g1);
+		var _g1 = [];
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g.push(_g1);
+		var _g1 = [];
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g.push(_g1);
+		var _g1 = [];
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g.push(_g1);
+		var _g1 = [];
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g1.push(false);
+		_g.push(_g1);
+		this.tileData = _g;
+		while(count < numActiveTiles) {
+			var x = 0;
+			var y = 0;
+			var random = new flixel_math_FlxRandom();
+			x = random.int(0,4);
+			y = random.int(0,3);
+			if(this.tileData[y][x] == false) {
+				this.tileData[y][x] = true;
+				++count;
+			}
+		}
+	}
+	,buildMap: function(numActiveTiles) {
+		this.setData(numActiveTiles);
 		var _g = [];
 		var _g1 = [];
 		_g1.push(null);
@@ -69412,181 +69599,23 @@ objects_MemoryTileMap.prototype = $extend(flixel_group_FlxTypedSpriteGroup.proto
 		_g1.push(null);
 		_g1.push(null);
 		_g.push(_g1);
-		this.tileData = _g;
-		var tile = new objects_MemoryTile(0,0,0);
-		this.add(tile);
-		this.tileData[0][0] = tile;
-		var tile = new objects_MemoryTile(112,0,0);
-		this.add(tile);
-		this.tileData[0][1] = tile;
-		var tile = new objects_MemoryTile(224,0,0);
-		this.add(tile);
-		this.tileData[0][2] = tile;
-		var tile = new objects_MemoryTile(336,0,0);
-		this.add(tile);
-		this.tileData[0][3] = tile;
-		var tile = new objects_MemoryTile(448,0,0);
-		this.add(tile);
-		this.tileData[0][4] = tile;
-		var tile = new objects_MemoryTile(0,112,0);
-		this.add(tile);
-		this.tileData[1][0] = tile;
-		var tile = new objects_MemoryTile(112,112,0);
-		this.add(tile);
-		this.tileData[1][1] = tile;
-		var tile = new objects_MemoryTile(224,112,0);
-		this.add(tile);
-		this.tileData[1][2] = tile;
-		var tile = new objects_MemoryTile(336,112,0);
-		this.add(tile);
-		this.tileData[1][3] = tile;
-		var tile = new objects_MemoryTile(448,112,0);
-		this.add(tile);
-		this.tileData[1][4] = tile;
-		var tile = new objects_MemoryTile(0,224,0);
-		this.add(tile);
-		this.tileData[2][0] = tile;
-		var tile = new objects_MemoryTile(112,224,0);
-		this.add(tile);
-		this.tileData[2][1] = tile;
-		var tile = new objects_MemoryTile(224,224,0);
-		this.add(tile);
-		this.tileData[2][2] = tile;
-		var tile = new objects_MemoryTile(336,224,0);
-		this.add(tile);
-		this.tileData[2][3] = tile;
-		var tile = new objects_MemoryTile(448,224,0);
-		this.add(tile);
-		this.tileData[2][4] = tile;
-		var tile = new objects_MemoryTile(0,336,0);
-		this.add(tile);
-		this.tileData[3][0] = tile;
-		var tile = new objects_MemoryTile(112,336,0);
-		this.add(tile);
-		this.tileData[3][1] = tile;
-		var tile = new objects_MemoryTile(224,336,0);
-		this.add(tile);
-		this.tileData[3][2] = tile;
-		var tile = new objects_MemoryTile(336,336,0);
-		this.add(tile);
-		this.tileData[3][3] = tile;
-		var tile = new objects_MemoryTile(448,336,0);
-		this.add(tile);
-		this.tileData[3][4] = tile;
-	}
-	,printMap: function() {
-		var row = "";
-		row += "0, ";
-		row += "0, ";
-		row += "0, ";
-		row += "0, ";
-		row += "0, ";
-		console.log(row);
-		var row = "";
-		row += "0, ";
-		row += "0, ";
-		row += "0, ";
-		row += "0, ";
-		row += "0, ";
-		console.log(row);
-		var row = "";
-		row += "0, ";
-		row += "0, ";
-		row += "0, ";
-		row += "0, ";
-		row += "0, ";
-		console.log(row);
-		var row = "";
-		row += "0, ";
-		row += "0, ";
-		row += "0, ";
-		row += "0, ";
-		row += "0, ";
-		console.log(row);
-	}
-	,setMap: function() {
-	}
-	,resetMapData: function() {
-		this.remove(this.tileData[0][0]);
-		var tile = new objects_MemoryTile(0,0,0);
-		this.add(tile);
-		this.tileData[0][0] = tile;
-		this.remove(this.tileData[0][1]);
-		var tile = new objects_MemoryTile(112,0,0);
-		this.add(tile);
-		this.tileData[0][1] = tile;
-		this.remove(this.tileData[0][2]);
-		var tile = new objects_MemoryTile(224,0,0);
-		this.add(tile);
-		this.tileData[0][2] = tile;
-		this.remove(this.tileData[0][3]);
-		var tile = new objects_MemoryTile(336,0,0);
-		this.add(tile);
-		this.tileData[0][3] = tile;
-		this.remove(this.tileData[0][4]);
-		var tile = new objects_MemoryTile(448,0,0);
-		this.add(tile);
-		this.tileData[0][4] = tile;
-		this.remove(this.tileData[1][0]);
-		var tile = new objects_MemoryTile(0,112,0);
-		this.add(tile);
-		this.tileData[1][0] = tile;
-		this.remove(this.tileData[1][1]);
-		var tile = new objects_MemoryTile(112,112,0);
-		this.add(tile);
-		this.tileData[1][1] = tile;
-		this.remove(this.tileData[1][2]);
-		var tile = new objects_MemoryTile(224,112,0);
-		this.add(tile);
-		this.tileData[1][2] = tile;
-		this.remove(this.tileData[1][3]);
-		var tile = new objects_MemoryTile(336,112,0);
-		this.add(tile);
-		this.tileData[1][3] = tile;
-		this.remove(this.tileData[1][4]);
-		var tile = new objects_MemoryTile(448,112,0);
-		this.add(tile);
-		this.tileData[1][4] = tile;
-		this.remove(this.tileData[2][0]);
-		var tile = new objects_MemoryTile(0,224,0);
-		this.add(tile);
-		this.tileData[2][0] = tile;
-		this.remove(this.tileData[2][1]);
-		var tile = new objects_MemoryTile(112,224,0);
-		this.add(tile);
-		this.tileData[2][1] = tile;
-		this.remove(this.tileData[2][2]);
-		var tile = new objects_MemoryTile(224,224,0);
-		this.add(tile);
-		this.tileData[2][2] = tile;
-		this.remove(this.tileData[2][3]);
-		var tile = new objects_MemoryTile(336,224,0);
-		this.add(tile);
-		this.tileData[2][3] = tile;
-		this.remove(this.tileData[2][4]);
-		var tile = new objects_MemoryTile(448,224,0);
-		this.add(tile);
-		this.tileData[2][4] = tile;
-		this.remove(this.tileData[3][0]);
-		var tile = new objects_MemoryTile(0,336,0);
-		this.add(tile);
-		this.tileData[3][0] = tile;
-		this.remove(this.tileData[3][1]);
-		var tile = new objects_MemoryTile(112,336,0);
-		this.add(tile);
-		this.tileData[3][1] = tile;
-		this.remove(this.tileData[3][2]);
-		var tile = new objects_MemoryTile(224,336,0);
-		this.add(tile);
-		this.tileData[3][2] = tile;
-		this.remove(this.tileData[3][3]);
-		var tile = new objects_MemoryTile(336,336,0);
-		this.add(tile);
-		this.tileData[3][3] = tile;
-		this.remove(this.tileData[3][4]);
-		var tile = new objects_MemoryTile(448,336,0);
-		this.add(tile);
-		this.tileData[3][4] = tile;
+		this.tiles = _g;
+		var _g = 0;
+		while(_g < 4) {
+			var y = _g++;
+			var _g1 = 0;
+			while(_g1 < 5) {
+				var x = _g1++;
+				var tile;
+				if(this.tileData[y][x]) {
+					tile = new objects_MemoryTile(96 * x + 16 * x,96 * y + 16 * y,1);
+				} else {
+					tile = new objects_MemoryTile(96 * x + 16 * x,96 * y + 16 * y,0);
+				}
+				this.add(tile);
+				this.tiles[y][x] = tile;
+			}
+		}
 	}
 	,__class__: objects_MemoryTileMap
 });
@@ -114457,7 +114486,11 @@ states_MemoryMatchState.prototype = $extend(flixel_FlxState.prototype,{
 	tiles: null
 	,create: function() {
 		flixel_FlxState.prototype.create.call(this);
-		this.tiles = new objects_MemoryTileMap(120,76);
+		flixel_FlxG.autoPause = false;
+		flixel_FlxG.sound.play("assets/sounds/mm_1.wav",1,false,null,true,$bind(this,this.showTileMap));
+	}
+	,showTileMap: function() {
+		this.tiles = new objects_MemoryTileMap(120,76,5);
 		this.add(this.tiles);
 	}
 	,update: function(elapsed) {
@@ -114548,6 +114581,12 @@ openfl_display_DisplayObject.__tempStack = new lime_utils_ObjectPool(function() 
 },function(stack) {
 	stack.set_length(0);
 });
+AssetPaths.data_goes_here__txt = "assets/data/data-goes-here.txt";
+AssetPaths.images_go_here__txt = "assets/images/images-go-here.txt";
+AssetPaths.music_goes_here__txt = "assets/music/music-goes-here.txt";
+AssetPaths.mm_1__mp3 = "assets/sounds/mm_1.mp3";
+AssetPaths.mm_1__wav = "assets/sounds/mm_1.wav";
+AssetPaths.sounds_go_here__txt = "assets/sounds/sounds-go-here.txt";
 openfl_text_Font.__fontByName = new haxe_ds_StringMap();
 openfl_text_Font.__registeredFonts = [];
 Xml.Element = 0;

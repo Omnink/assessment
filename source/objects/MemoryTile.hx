@@ -15,7 +15,7 @@ class MemoryTile extends FlxExtendedSprite
 	{
 		super(x, y);
 
-		clickable = true;
+		clickable = false;
 		this.type = type;
 		switch (this.type)
 		{

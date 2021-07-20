@@ -1,6 +1,7 @@
 package objects;
 
 import flixel.group.FlxSpriteGroup;
+import flixel.math.FlxRandom;
 import flixel.util.FlxTimer;
 import js.html.Console;
 import objects.MemoryTile;
@@ -13,63 +14,87 @@ class MemoryTileMap extends FlxSpriteGroup
 	static inline var ROWS:Int = 4;
 	static inline var COLS:Int = 5;
 
-	var tileData:Array<Array<MemoryTile>>;
+	var tileData:Array<Array<Bool>>;
+	var tiles:Array<Array<MemoryTile>>;
 
-	public function new(x:Float, y:Float):Void
+	public function new(x:Float, y:Float, numActiveTiles:Int):Void
 	{
 		super(x, y);
-		buildMap();
+
+		buildMap(numActiveTiles);
+		startTimer(3);
 	}
 
-	public function buildMap():Void
+	public function startTimer(seconds:Float):Void
 	{
-		tileData = [for (x in 0...10) [for (y in 0...10) null]];
+		new FlxTimer().start(seconds, hideMap);
+	}
+
+	function hideMap(timer:FlxTimer):Void
+	{
+		Console.log("WE DID IT");
 
 		for (y in 0...ROWS)
 		{
 			for (x in 0...COLS)
 			{
-				var tile = new MemoryTile((TILE_WIDTH * x) + (TILE_GAP * x), (TILE_HEIGHT * y) + (TILE_GAP * y), 0);
-				add(tile);
+				// Clear tiles
+				remove(tiles[y][x]);
+				tiles[y][x] = null;
 
-				tileData[y][x] = tile;
+				// Show tiles
+				var tile:MemoryTile;
+				tile = new MemoryTile((TILE_WIDTH * x) + (TILE_GAP * x), (TILE_HEIGHT * y) + (TILE_GAP * y), 0);
+				tile.clickable = true;
+				add(tile);
+				tiles[y][x] = tile;
 			}
 		}
 	}
 
-	public function printMap():Void
+	public function setData(numActiveTiles:Int):Void
 	{
-		for (y in 0...ROWS)
+		var count:Int = 0;
+		tileData = [for (x in 0...10) [for (y in 0...10) false]];
+		while (count < numActiveTiles)
 		{
-			var row:String = "";
-			for (x in 0...COLS)
+			var x:Int = 0;
+			var y:Int = 0;
+
+			var random:FlxRandom = new FlxRandom();
+			x = random.int(0, 4);
+			y = random.int(0, 3);
+
+			if (tileData[y][x] == false)
 			{
-				row += "0, ";
+				tileData[y][x] = true;
+				count++;
 			}
-			Console.log(row);
 		}
 	}
 
-	public function setMap():Void
+	public function buildMap(numActiveTiles:Int):Void
 	{
-		for (y in 0...ROWS)
-		{
-			for (x in 0...COLS) {}
-		}
-	}
+		setData(numActiveTiles);
 
-	public function resetMapData():Void
-	{
+		tiles = [for (x in 0...10) [for (y in 0...10) null]];
+
 		for (y in 0...ROWS)
 		{
 			for (x in 0...COLS)
 			{
-				remove(tileData[y][x]);
+				var tile:MemoryTile;
 
-				var tile = new MemoryTile((TILE_WIDTH * x) + (TILE_GAP * x), (TILE_HEIGHT * y) + (TILE_GAP * y), 0);
+				if (tileData[y][x])
+				{
+					tile = new MemoryTile((TILE_WIDTH * x) + (TILE_GAP * x), (TILE_HEIGHT * y) + (TILE_GAP * y), 1);
+				}
+				else
+					tile = new MemoryTile((TILE_WIDTH * x) + (TILE_GAP * x), (TILE_HEIGHT * y) + (TILE_GAP * y), 0);
+
 				add(tile);
 
-				tileData[y][x] = tile;
+				tiles[y][x] = tile;
 			}
 		}
 	}
